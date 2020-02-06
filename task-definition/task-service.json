@@ -1,0 +1,22 @@
+[
+  {
+    "name": "${container_name}",
+    "image": "${repository_url}:latest",
+    "cpu": 2048,
+    "memory": 4096,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": ${service_port}
+      }
+    ],  
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${log_cluster}",
+        "awslogs-region": "${region}",
+        "awslogs-stream-prefix": "${container_name}"
+      }
+    }
+  }
+]
